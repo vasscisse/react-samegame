@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/react-samegame/static/js/runtime~main.04f4866f.js"
   },
   {
-    "revision": "5d7f2ded3c7a3b1f4b44",
-    "url": "/react-samegame/static/js/main.5d7f2ded.chunk.js"
+    "revision": "33193d17c7ef1624b92c",
+    "url": "/react-samegame/static/js/main.33193d17.chunk.js"
   },
   {
     "revision": "4f29bdfac74402aecb4c",
     "url": "/react-samegame/static/js/1.4f29bdfa.chunk.js"
   },
   {
-    "revision": "5d7f2ded3c7a3b1f4b44",
+    "revision": "33193d17c7ef1624b92c",
     "url": "/react-samegame/static/css/main.f00008b0.chunk.css"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/react-samegame/static/css/1.a347712c.chunk.css"
   },
   {
-    "revision": "d719b73a17cb5f0adc1221f8f2060fbe",
+    "revision": "5020b660c36747de607f00490268e390",
     "url": "/react-samegame/index.html"
   }
 ];
