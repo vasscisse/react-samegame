@@ -1,15 +1,15 @@
 {
-  "main.css": "/vasscisse/react-samegame/static/css/main.f00008b0.chunk.css",
-  "main.js": "/vasscisse/react-samegame/static/js/main.7751daee.chunk.js",
-  "main.js.map": "/vasscisse/react-samegame/static/js/main.7751daee.chunk.js.map",
-  "static/css/1.a347712c.chunk.css": "/vasscisse/react-samegame/static/css/1.a347712c.chunk.css",
-  "static/js/1.4f29bdfa.chunk.js": "/vasscisse/react-samegame/static/js/1.4f29bdfa.chunk.js",
-  "static/js/1.4f29bdfa.chunk.js.map": "/vasscisse/react-samegame/static/js/1.4f29bdfa.chunk.js.map",
-  "runtime~main.js": "/vasscisse/react-samegame/static/js/runtime~main.67d93ad9.js",
-  "runtime~main.js.map": "/vasscisse/react-samegame/static/js/runtime~main.67d93ad9.js.map",
-  "static/css/1.a347712c.chunk.css.map": "/vasscisse/react-samegame/static/css/1.a347712c.chunk.css.map",
-  "static/css/main.f00008b0.chunk.css.map": "/vasscisse/react-samegame/static/css/main.f00008b0.chunk.css.map",
-  "index.html": "/vasscisse/react-samegame/index.html",
-  "precache-manifest.45ce76dfb28e352be02b9b2a6157a361.js": "/vasscisse/react-samegame/precache-manifest.45ce76dfb28e352be02b9b2a6157a361.js",
-  "service-worker.js": "/vasscisse/react-samegame/service-worker.js"
+  "main.css": "/react-samegame/static/css/main.f00008b0.chunk.css",
+  "main.js": "/react-samegame/static/js/main.38714dcf.chunk.js",
+  "main.js.map": "/react-samegame/static/js/main.38714dcf.chunk.js.map",
+  "static/css/1.a347712c.chunk.css": "/react-samegame/static/css/1.a347712c.chunk.css",
+  "static/js/1.4f29bdfa.chunk.js": "/react-samegame/static/js/1.4f29bdfa.chunk.js",
+  "static/js/1.4f29bdfa.chunk.js.map": "/react-samegame/static/js/1.4f29bdfa.chunk.js.map",
+  "runtime~main.js": "/react-samegame/static/js/runtime~main.04f4866f.js",
+  "runtime~main.js.map": "/react-samegame/static/js/runtime~main.04f4866f.js.map",
+  "static/css/main.f00008b0.chunk.css.map": "/react-samegame/static/css/main.f00008b0.chunk.css.map",
+  "static/css/1.a347712c.chunk.css.map": "/react-samegame/static/css/1.a347712c.chunk.css.map",
+  "index.html": "/react-samegame/index.html",
+  "precache-manifest.1ff6da4709537f344e1e4a53c0fee28a.js": "/react-samegame/precache-manifest.1ff6da4709537f344e1e4a53c0fee28a.js",
+  "service-worker.js": "/react-samegame/service-worker.js"
 }

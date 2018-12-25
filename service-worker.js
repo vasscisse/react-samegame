@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vasscisse/react-samegame/precache-manifest.45ce76dfb28e352be02b9b2a6157a361.js"
+  "/react-samegame/precache-manifest.1ff6da4709537f344e1e4a53c0fee28a.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/vasscisse/react-samegame/index.html", {
+workbox.routing.registerNavigationRoute("/react-samegame/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
