@@ -1,7 +1,7 @@
 {
   "main.css": "/react-samegame/static/css/main.f00008b0.chunk.css",
-  "main.js": "/react-samegame/static/js/main.8320fe50.chunk.js",
-  "main.js.map": "/react-samegame/static/js/main.8320fe50.chunk.js.map",
+  "main.js": "/react-samegame/static/js/main.33193d17.chunk.js",
+  "main.js.map": "/react-samegame/static/js/main.33193d17.chunk.js.map",
   "static/css/1.a347712c.chunk.css": "/react-samegame/static/css/1.a347712c.chunk.css",
   "static/js/1.4f29bdfa.chunk.js": "/react-samegame/static/js/1.4f29bdfa.chunk.js",
   "static/js/1.4f29bdfa.chunk.js.map": "/react-samegame/static/js/1.4f29bdfa.chunk.js.map",
@@ -10,6 +10,6 @@
   "static/css/1.a347712c.chunk.css.map": "/react-samegame/static/css/1.a347712c.chunk.css.map",
   "static/css/main.f00008b0.chunk.css.map": "/react-samegame/static/css/main.f00008b0.chunk.css.map",
   "index.html": "/react-samegame/index.html",
-  "precache-manifest.924111c423e4c0ed981313f3f8395250.js": "/react-samegame/precache-manifest.924111c423e4c0ed981313f3f8395250.js",
+  "precache-manifest.9d9d9ff9f8e5b441836ab1a9c336757a.js": "/react-samegame/precache-manifest.9d9d9ff9f8e5b441836ab1a9c336757a.js",
   "service-worker.js": "/react-samegame/service-worker.js"
 }
