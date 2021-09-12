@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.68a98085.chunk.css",
-    "main.js": "/static/js/main.cd1ef29d.chunk.js",
-    "main.js.map": "/static/js/main.cd1ef29d.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
-    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
-    "static/css/2.f65acde2.chunk.css": "/static/css/2.f65acde2.chunk.css",
-    "static/js/2.49f99f91.chunk.js": "/static/js/2.49f99f91.chunk.js",
-    "static/js/2.49f99f91.chunk.js.map": "/static/js/2.49f99f91.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.ce6c0c3e3b9775f5e35b59ebbeb75606.js": "/precache-manifest.ce6c0c3e3b9775f5e35b59ebbeb75606.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.f65acde2.chunk.css.map": "/static/css/2.f65acde2.chunk.css.map",
-    "static/css/main.68a98085.chunk.css.map": "/static/css/main.68a98085.chunk.css.map"
+    "main.css": "/vasscisse/react-samegame/static/css/main.68a98085.chunk.css",
+    "main.js": "/vasscisse/react-samegame/static/js/main.7825f14e.chunk.js",
+    "main.js.map": "/vasscisse/react-samegame/static/js/main.7825f14e.chunk.js.map",
+    "runtime~main.js": "/vasscisse/react-samegame/static/js/runtime~main.df917387.js",
+    "runtime~main.js.map": "/vasscisse/react-samegame/static/js/runtime~main.df917387.js.map",
+    "static/css/2.f65acde2.chunk.css": "/vasscisse/react-samegame/static/css/2.f65acde2.chunk.css",
+    "static/js/2.49f99f91.chunk.js": "/vasscisse/react-samegame/static/js/2.49f99f91.chunk.js",
+    "static/js/2.49f99f91.chunk.js.map": "/vasscisse/react-samegame/static/js/2.49f99f91.chunk.js.map",
+    "index.html": "/vasscisse/react-samegame/index.html",
+    "precache-manifest.9c0e4c105e1ac2e42d8045f711b99fd6.js": "/vasscisse/react-samegame/precache-manifest.9c0e4c105e1ac2e42d8045f711b99fd6.js",
+    "service-worker.js": "/vasscisse/react-samegame/service-worker.js",
+    "static/css/2.f65acde2.chunk.css.map": "/vasscisse/react-samegame/static/css/2.f65acde2.chunk.css.map",
+    "static/css/main.68a98085.chunk.css.map": "/vasscisse/react-samegame/static/css/main.68a98085.chunk.css.map"
   }
 }
