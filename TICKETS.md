@@ -1,6 +1,47 @@
 # Improvement Tickets
 
-## Ticket 1: Replace timer singleton with React-idiomatic hook
+## Ticket 1: Add meaningful test coverage
+
+**Priority:** Medium
+
+**Description:**
+The only test is the CRA boilerplate smoke test in `src/App.test.js` (lines 5–9), and it would actually fail because `<App>` requires a Redux `<Provider>` wrapper that the test doesn't supply.
+
+**What to do:**
+- Fix the existing smoke test by wrapping `<App>` in a Redux `<Provider>` with a mock store.
+- Add unit tests for the pure game logic in `src/utils/index.js`: test `startNewGame`, `updateBoard`, `_deleteBubbleRecursively` (via `updateBoard`), `_moveBubblesDown` (via `updateBoard`), `_incrementScoreAndBonus`, `_hasWon`, `_isOver`, and `isNotDeletedColor`.
+- Add unit tests for the reducers in `src/reducers/game.js`, `src/reducers/login.js`, and `src/reducers/timer.js`.
+- Consider adding integration tests for key user flows (login, clicking a bubble, game over).
+
+**Affected files:**
+- `src/App.test.js`
+- New test files (e.g., `src/utils/index.test.js`, `src/reducers/game.test.js`, etc.)
+
+---
+
+## Ticket 2: Upgrade outdated dependencies
+
+**Priority:** Medium
+
+**Description:**
+`package.json` pins very old versions: React 16.8.6, Redux 4.0.1, Bootstrap 4.1.1, react-scripts 3.0.1. Modern equivalents (React 18, Redux Toolkit, Bootstrap 5) offer significant improvements in API ergonomics, performance, bundle size, and security patches.
+
+**What to do:**
+- Upgrade React and React DOM to React 18. Update `src/index.js` to use `createRoot` instead of `ReactDOM.render`.
+- Replace Redux + react-redux with Redux Toolkit (`@reduxjs/toolkit`). Rewrite reducers as slices using `createSlice`, which also handles immutability via Immer.
+- Upgrade Bootstrap to v5 and update any v4-specific class names or markup.
+- Upgrade react-scripts to the latest version (or migrate to Vite).
+- Run the app and tests after each upgrade to catch breakages.
+
+**Affected files:**
+- `package.json`
+- `src/index.js`
+- `src/reducers/` (all reducer files)
+- `src/components/` (any Bootstrap-specific markup)
+
+---
+
+## Ticket 3: Replace timer singleton with React-idiomatic hook
 
 **Priority:** High
 
@@ -18,7 +59,7 @@ The `timerCountDown` IIFE in `src/components/timer.jsx` (lines 10–80) is a mod
 
 ---
 
-## Ticket 2: Fix Redux state mutation in game utilities
+## Ticket 4: Fix Redux state mutation in game utilities
 
 **Priority:** High
 
@@ -34,7 +75,7 @@ The `updateBoard` function in `src/utils/index.js` (lines 163–188) passes the 
 
 ---
 
-## Ticket 3: Stop passing entire Redux state through action payloads
+## Ticket 5: Stop passing entire Redux state through action payloads
 
 **Priority:** High
 
@@ -54,7 +95,7 @@ In `src/components/board.jsx` (lines 31–33), the `onDelete` handler dispatches
 
 ---
 
-## Ticket 4: Optimize bubble lookups with a 2D data structure
+## Ticket 6: Optimize bubble lookups with a 2D data structure
 
 **Priority:** Medium
 
@@ -70,47 +111,6 @@ In `src/components/board.jsx` (lines 31–33), the `onDelete` handler dispatches
 - `src/utils/index.js`
 - `src/components/board.jsx` (if it iterates over bubbles)
 - `src/reducers/game.js` (if it accesses bubbles directly)
-
----
-
-## Ticket 5: Add meaningful test coverage
-
-**Priority:** Medium
-
-**Description:**
-The only test is the CRA boilerplate smoke test in `src/App.test.js` (lines 5–9), and it would actually fail because `<App>` requires a Redux `<Provider>` wrapper that the test doesn't supply.
-
-**What to do:**
-- Fix the existing smoke test by wrapping `<App>` in a Redux `<Provider>` with a mock store.
-- Add unit tests for the pure game logic in `src/utils/index.js`: test `startNewGame`, `updateBoard`, `_deleteBubbleRecursively` (via `updateBoard`), `_moveBubblesDown` (via `updateBoard`), `_incrementScoreAndBonus`, `_hasWon`, `_isOver`, and `isNotDeletedColor`.
-- Add unit tests for the reducers in `src/reducers/game.js`, `src/reducers/login.js`, and `src/reducers/timer.js`.
-- Consider adding integration tests for key user flows (login, clicking a bubble, game over).
-
-**Affected files:**
-- `src/App.test.js`
-- New test files (e.g., `src/utils/index.test.js`, `src/reducers/game.test.js`, etc.)
-
----
-
-## Ticket 6: Upgrade outdated dependencies
-
-**Priority:** Medium
-
-**Description:**
-`package.json` pins very old versions: React 16.8.6, Redux 4.0.1, Bootstrap 4.1.1, react-scripts 3.0.1. Modern equivalents (React 18, Redux Toolkit, Bootstrap 5) offer significant improvements in API ergonomics, performance, bundle size, and security patches.
-
-**What to do:**
-- Upgrade React and React DOM to React 18. Update `src/index.js` to use `createRoot` instead of `ReactDOM.render`.
-- Replace Redux + react-redux with Redux Toolkit (`@reduxjs/toolkit`). Rewrite reducers as slices using `createSlice`, which also handles immutability via Immer.
-- Upgrade Bootstrap to v5 and update any v4-specific class names or markup.
-- Upgrade react-scripts to the latest version (or migrate to Vite).
-- Run the app and tests after each upgrade to catch breakages.
-
-**Affected files:**
-- `package.json`
-- `src/index.js`
-- `src/reducers/` (all reducer files)
-- `src/components/` (any Bootstrap-specific markup)
 
 ---
 
