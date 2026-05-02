@@ -11,7 +11,7 @@ export const utils = (function() {
 	const _bonus10 = 10;
 	const _bonus100 = 100;
 
-	const _winingScore = 500;
+	const _winningScore = 500;
 
 	const _emptyGameData = {
 		bubbles: [],
@@ -26,15 +26,15 @@ export const utils = (function() {
 		hasLost: false
 	};
 
-	function _isNotNull(value) {
-		return typeof value != 'undefined' && value;
+	function _isTruthy(value) {
+		return typeof value !== 'undefined' && value;
 	}
 
 	function _getBubbleAt(i, j, bubbles) {
 		let obj = bubbles.filter((b) => {
 			return b.x === i && b.y === j;
 		});
-		return _isNotNull(obj) ? obj[0] : null;
+		return _isTruthy(obj) ? obj[0] : null;
 	}
 
 	function _moveOneBubbleDown(belowBubble, bubble, bubbles) {
@@ -60,7 +60,7 @@ export const utils = (function() {
 				if (i + 1 < _maxHeight) {
 					let bubble = _getBubbleAt(i, j, bubbles);
 					let belowBubble = _getBubbleAt(i + 1, j, bubbles);
-					if (_isNotNull(bubble) && _isNotNull(belowBubble)) {
+					if (_isTruthy(bubble) && _isTruthy(belowBubble)) {
 						counts += _moveOneBubbleDown(belowBubble, bubble, bubbles);
 					}
 				}
@@ -77,7 +77,7 @@ export const utils = (function() {
 	}
 
 	function _deleteBubbleRecursively(color, bubble, bubbles) {
-		if (_isNotNull(bubble)) {
+		if (_isTruthy(bubble)) {
 			let i = bubble.x;
 			let j = bubble.y;
 			let valid = i >= 0 && i < _maxHeight && j >= 0 && j < _maxWidth && color === bubble.color;
@@ -118,7 +118,7 @@ export const utils = (function() {
 	}
 
 	function _hasWon(score) {
-		if (score >= _winingScore) return true;
+		if (score >= _winningScore) return true;
 		return false;
 	}
 
