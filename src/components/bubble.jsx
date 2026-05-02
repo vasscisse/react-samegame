@@ -3,14 +3,14 @@
 //
 
 import React, { useMemo } from 'react';
-import { utils } from '../utils';
+import { isNotDeletedColor } from '../utils';
 import { useSelector } from 'react-redux';
 
 // Stateless Functional Component
 const Bubble = (props) => {
 	const timerDetails = useSelector((state) => state.timer);
 
-	const isClickable = !timerDetails.timeIsUp && utils.isNotDeletedColor(props.bubble.color);
+	const isClickable = !timerDetails.timeIsUp && isNotDeletedColor(props.bubble.color);
 	const className = isClickable ? 'bubble bubble--clickable' : 'bubble';
 	const bubbleStyle = useMemo(() => ({ backgroundColor: props.bubble.color }), [ props.bubble.color ]);
 
