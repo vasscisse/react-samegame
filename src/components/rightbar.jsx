@@ -43,7 +43,7 @@ const RightBar = () => {
 			)}
 			{(game.hasLost || (timerDetails.timeIsUp && !game.hasWon)) && (
 				<div className="alert alert-danger col-lg-5" role="alert">
-					{login.username}, you are a looser! &#128540;
+					{login.username}, you are a loser! &#128540;
 				</div>
 			)}
 		</React.Fragment>
