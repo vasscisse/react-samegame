@@ -1,6 +1,6 @@
 # Playbook
 
-This document defines the workflow and execution plan for the improvement tickets listed in [TICKETS.md](./TICKETS.md).
+This document defines the workflow and execution plan for the improvement tickets listed in [TICKETS.md](../../TICKETS.md).
 
 ## Ground Rules
 
