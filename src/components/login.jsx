@@ -44,9 +44,7 @@ const Login = ({ launchGame }) => {
 				</button>
 			</div>
 			<br />
-			<span className="badge badge-light">
-				<font color="red">{errorMsg}</font>
-			</span>
+			<span className="badge badge-light text-danger">{errorMsg}</span>
 		</nav>
 	);
 };
