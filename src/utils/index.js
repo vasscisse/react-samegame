@@ -34,64 +34,60 @@ function _getBubbleAt(i, j, bubbles) {
 	return _isTruthy(obj) ? obj[0] : null;
 }
 
-function _moveOneBubbleDown(belowBubble, bubble, bubbles) {
-	let count = 0;
-	if (belowBubble.color === _deletedColor && bubble.color !== _deletedColor) {
-		const index1 = bubbles.indexOf(bubble);
-		bubbles[index1] = { ...bubble };
-		bubbles[index1].color = _deletedColor;
-
-		const index2 = bubbles.indexOf(belowBubble);
-		bubbles[index2] = { ...belowBubble };
-		bubbles[index2].color = bubble.color;
-
-		count = 1;
-	}
-	return count;
-}
-
-function _moveBubblesDown(bubbles, total) {
-	let counts = 0;
-	for (var i = 0; i < _maxHeight; i++) {
-		for (var j = 0; j < _maxWidth; j++) {
-			if (i + 1 < _maxHeight) {
-				let bubble = _getBubbleAt(i, j, bubbles);
-				let belowBubble = _getBubbleAt(i + 1, j, bubbles);
-				if (_isTruthy(bubble) && _isTruthy(belowBubble)) {
-					counts += _moveOneBubbleDown(belowBubble, bubble, bubbles);
-				}
+function _onePassMoveBubblesDown(bubbles) {
+	const updates = new Map();
+	let moved = 0;
+	for (let i = 0; i < _maxHeight - 1; i++) {
+		for (let j = 0; j < _maxWidth; j++) {
+			const bubble = _getBubbleAt(i, j, bubbles);
+			const belowBubble = _getBubbleAt(i + 1, j, bubbles);
+			if (
+				_isTruthy(bubble) &&
+				_isTruthy(belowBubble) &&
+				belowBubble.color === _deletedColor &&
+				bubble.color !== _deletedColor
+			) {
+				updates.set(bubbles.indexOf(bubble), _deletedColor);
+				updates.set(bubbles.indexOf(belowBubble), bubble.color);
+				moved++;
 			}
 		}
 	}
+	if (moved === 0) return { bubbles, moved: 0 };
+	const next = bubbles.map((b, k) => (updates.has(k) ? { ...b, color: updates.get(k) } : b));
+	return { bubbles: next, moved };
+}
 
-	total += counts;
+function _moveBubblesDown(bubbles) {
+	let current = bubbles;
+	let total = 0;
+	let moved;
+	do {
+		const result = _onePassMoveBubblesDown(current);
+		current = result.bubbles;
+		moved = result.moved;
+		total += moved;
+	} while (moved > 0);
+	return { bubbles: current, total };
+}
 
-	if (counts > 0) {
-		_moveBubblesDown(bubbles, total);
-	}
-
-	return total;
+function _collectDeletableIndices(color, bubble, bubbles, visited) {
+	if (!_isTruthy(bubble) || bubble.color !== color) return;
+	if (bubble.x < 0 || bubble.x >= _maxHeight || bubble.y < 0 || bubble.y >= _maxWidth) return;
+	const idx = bubbles.indexOf(bubble);
+	if (idx < 0 || visited.has(idx)) return;
+	visited.add(idx);
+	_collectDeletableIndices(color, _getBubbleAt(bubble.x - 1, bubble.y, bubbles), bubbles, visited);
+	_collectDeletableIndices(color, _getBubbleAt(bubble.x + 1, bubble.y, bubbles), bubbles, visited);
+	_collectDeletableIndices(color, _getBubbleAt(bubble.x, bubble.y - 1, bubbles), bubbles, visited);
+	_collectDeletableIndices(color, _getBubbleAt(bubble.x, bubble.y + 1, bubbles), bubbles, visited);
 }
 
 function _deleteBubbleRecursively(color, bubble, bubbles) {
-	if (_isTruthy(bubble)) {
-		let i = bubble.x;
-		let j = bubble.y;
-		let valid = i >= 0 && i < _maxHeight && j >= 0 && j < _maxWidth && color === bubble.color;
-
-		if (valid) {
-			// Mark targeted bubble as deleted
-			const index = bubbles.indexOf(bubble);
-			bubbles[index] = { ...bubble };
-			bubbles[index].color = _deletedColor;
-
-			//recursive call for bubbles around
-			_deleteBubbleRecursively(color, _getBubbleAt(i - 1, j, bubbles), bubbles);
-			_deleteBubbleRecursively(color, _getBubbleAt(i + 1, j, bubbles), bubbles);
-			_deleteBubbleRecursively(color, _getBubbleAt(i, j - 1, bubbles), bubbles);
-			_deleteBubbleRecursively(color, _getBubbleAt(i, j + 1, bubbles), bubbles);
-		}
-	}
+	const visited = new Set();
+	_collectDeletableIndices(color, bubble, bubbles, visited);
+	if (visited.size === 0) return bubbles;
+	return bubbles.map((b, i) => (visited.has(i) ? { ...b, color: _deletedColor } : b));
 }
 
 function _incrementScoreAndBonus(score, fallen, bonus10, bonus100) {
@@ -161,10 +157,15 @@ export function updateBoard(gamePayload) {
 		return;
 	}
 
-	let { bubbles, score: xscore, countBonus10: bonus10, countBonus100: bonus100 } = gamePayload.game;
-	_deleteBubbleRecursively(gamePayload.bubble.color, gamePayload.bubble, bubbles);
-	let countFallen = _moveBubblesDown(bubbles, 0);
-	let { score, countBonus10, countBonus100 } = _incrementScoreAndBonus(xscore, countFallen, bonus10, bonus100);
+	const { score: xscore, countBonus10: bonus10, countBonus100: bonus100 } = gamePayload.game;
+
+	const bubblesAfterDelete = _deleteBubbleRecursively(
+		gamePayload.bubble.color,
+		gamePayload.bubble,
+		gamePayload.game.bubbles
+	);
+	const { bubbles, total: countFallen } = _moveBubblesDown(bubblesAfterDelete);
+	const { score, countBonus10, countBonus100 } = _incrementScoreAndBonus(xscore, countFallen, bonus10, bonus100);
 
 	const isOver = _isOver(bubbles);
 	const hasWon = _hasWon(score);
