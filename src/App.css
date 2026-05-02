@@ -30,3 +30,25 @@
     transform: rotate(360deg);
   }
 }
+
+.board-grid {
+  height: 520px;
+  width: 645px;
+  padding-top: 5px;
+  background-color: #FFF;
+  -webkit-filter: drop-shadow(0 0 5px #666);
+  filter: drop-shadow(0 0 5px #666);
+}
+
+.bubble {
+  padding: 3px;
+  margin: 3px;
+  display: inline-block;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.bubble--clickable {
+  cursor: pointer;
+}

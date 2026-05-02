@@ -115,9 +115,7 @@ const Timer = () => {
 			{count <= 10 && (
 				<button type="button" className="btn btn-warning" disabled>
 					{timeSign}{' '}
-					<span className="badge badge-light">
-						<font color="red">{count}</font>
-					</span>
+					<span className="badge badge-light text-danger">{count}</span>
 				</button>
 			)}
 			{count > 10 && (

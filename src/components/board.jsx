@@ -9,21 +9,12 @@ import { actionUpdateBoard } from '../reducers/actions';
 
 // Stateless Functional Component
 const Board = () => {
-	var boardStyle = {
-		height: 520,
-		width: 645,
-		paddingTop: 5,
-		backgroundColor: '#FFF',
-		WebkitFilter: 'drop-shadow(0px 0px 5px #666)',
-		filter: 'drop-shadow(0px 0px 5px #666)'
-	};
-
 	const game = useSelector((state) => state.game);
 	const dispatch = useDispatch();
 
 	return (
 		<React.Fragment>
-			<div style={boardStyle}>
+			<div className="board-grid">
 				{game.bubbles.map((bubble) => (
 					<Bubble
 						key={bubble.id}
